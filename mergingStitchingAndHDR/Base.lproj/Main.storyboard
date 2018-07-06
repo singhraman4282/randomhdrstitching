@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Xh-l0-CiD">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="w7v-vm-6eL">
+            <objects>
+                <viewController id="DPe-Eh-Qmy" customClass="ViewController" customModule="mergingStitchingAndHDR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sAC-BU-7XJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jeu-X3-vgb" customClass="PreviewView" customModule="mergingStitchingAndHDR" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBd-pO-trf">
+                                <rect key="frame" x="151" y="613" width="73" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="73" id="K79-m7-UGx"/>
+                                    <constraint firstAttribute="height" constant="34" id="QvS-Sh-NeG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="onTapTakePhoto:" destination="DPe-Eh-Qmy" eventType="touchUpInside" id="AqW-EM-beh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jeu-X3-vgb" firstAttribute="leading" secondItem="vuQ-4j-XhU" secondAttribute="leading" id="2B7-0j-3vB"/>
+                            <constraint firstItem="Jeu-X3-vgb" firstAttribute="top" secondItem="sAC-BU-7XJ" secondAttribute="top" id="9Tj-Ae-KVM"/>
+                            <constraint firstItem="Jeu-X3-vgb" firstAttribute="trailing" secondItem="vuQ-4j-XhU" secondAttribute="trailing" id="Ij0-k3-k7g"/>
+                            <constraint firstAttribute="bottom" secondItem="Jeu-X3-vgb" secondAttribute="bottom" id="slF-Jg-R6A"/>
+                            <constraint firstItem="vuQ-4j-XhU" firstAttribute="bottom" secondItem="vBd-pO-trf" secondAttribute="bottom" constant="20" id="zGf-4z-nD8"/>
+                            <constraint firstItem="vBd-pO-trf" firstAttribute="centerX" secondItem="sAC-BU-7XJ" secondAttribute="centerX" id="zaN-K2-SNZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vuQ-4j-XhU"/>
+                    </view>
+                    <connections>
+                        <outlet property="previewView" destination="Jeu-X3-vgb" id="pZz-HO-gKG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bou-Zo-0uZ" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="738" y="172"/>
+        </scene>
+        <!--Sw View Controller-->
+        <scene sceneID="fod-jK-sxd">
+            <objects>
+                <viewController id="3Xh-l0-CiD" customClass="SwViewController" customModule="mergingStitchingAndHDR" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZLk-Tr-Xao"/>
+                        <viewControllerLayoutGuide type="bottom" id="brf-IT-DLs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="j06-EF-MRV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9A-ta-t3H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="oIG-kD-Q6o">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LJg-s2-9df">
+                                <rect key="frame" x="167" y="617" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="TvI-gp-CZZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="aks-AK-Y3m"/>
+                                </constraints>
+                                <state key="normal" title="Stitch">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stitchButtonPressed:" destination="3Xh-l0-CiD" eventType="touchUpInside" id="cRA-OC-oOb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="oIG-kD-Q6o" secondAttribute="centerX" id="8jP-QI-tuH"/>
+                            <constraint firstItem="w9A-ta-t3H" firstAttribute="top" secondItem="j06-EF-MRV" secondAttribute="top" id="CSq-tU-7BZ"/>
+                            <constraint firstItem="LJg-s2-9df" firstAttribute="centerX" secondItem="j06-EF-MRV" secondAttribute="centerX" id="LPR-VZ-Ryh"/>
+                            <constraint firstItem="brf-IT-DLs" firstAttribute="top" secondItem="LJg-s2-9df" secondAttribute="bottom" constant="20" id="OAQ-t6-gL3"/>
+                            <constraint firstItem="w9A-ta-t3H" firstAttribute="leading" secondItem="j06-EF-MRV" secondAttribute="leading" id="Q3A-Zj-8Xm"/>
+                            <constraint firstItem="brf-IT-DLs" firstAttribute="top" secondItem="w9A-ta-t3H" secondAttribute="bottom" id="QDM-gY-6u3"/>
+                            <constraint firstAttribute="trailing" secondItem="w9A-ta-t3H" secondAttribute="trailing" id="Uk3-pK-t8K"/>
+                            <constraint firstAttribute="centerY" secondItem="oIG-kD-Q6o" secondAttribute="centerY" id="bMO-tx-Wzy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UuQ-Yu-2Bh"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="w9A-ta-t3H" id="YzG-hr-vdE"/>
+                        <outlet property="spinner" destination="oIG-kD-Q6o" id="EQf-xq-lLA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhF-jg-BZM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="171"/>
+        </scene>
+    </scenes>
+</document>
