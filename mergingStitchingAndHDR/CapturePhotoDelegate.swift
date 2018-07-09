@@ -12,6 +12,8 @@ import AVKit
 class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
     
     var photoData: Data?
+    let saveManager = SavePhotoManager()
+    var imagesArray = [UIImage]()
     
     internal func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         print("CapturePhotoDelegate: didFinishProcessingPhoto")
@@ -36,12 +38,19 @@ class CapturePhotoDelegate: NSObject, AVCapturePhotoCaptureDelegate {
         let scaledCaptureImage = resizeManager.resizeImage(image: capturedImage, scaledTo: CGSize(width: (capturedImage?.size.width)!/10, height: (capturedImage?.size.height)!/10))
         
         //SAVE ORIGINAL IMAGE
-        let saveManager = SavePhotoManager()
-        saveManager.saveImage(image: scaledCaptureImage)
+        
+//        saveManager.saveImage(image: scaledCaptureImage)
+
+        imagesArray.append(scaledCaptureImage)
+        
+        
+        
+        
+        
 //        saveManager.saveImageWithImageData(imageData: photoData)
         
-        let exposureManager = ExposureManager()
-        exposureManager.applyManualExposure(toImage: scaledCaptureImage)
+//        let exposureManager = ExposureManager()
+//        exposureManager.applyManualExposure(toImage: scaledCaptureImage)
         
     }
     

@@ -105,32 +105,6 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
         return stitchedImage
     }
     
-    func stichFromAllImages(images:[UIImage]) {
-        var imagesArray = images
-        var returnedImage:UIImage!
-        repeat {
-            returnedImage = stichFromTwoImages(image1: imagesArray[0], image2: imagesArray[1])
-            imagesArray.remove(at: 0)
-            imagesArray.remove(at: 0)
-            imagesArray.insert(returnedImage, at: 0)
-        } while imagesArray.count > 1
-        
-        let imageView:UIImageView = UIImageView.init(image: returnedImage)
-        self.imageView = imageView
-        self.scrollView.addSubview(self.imageView!)
-        self.scrollView.backgroundColor = UIColor.black
-        self.scrollView.contentSize = self.imageView!.bounds.size
-        self.scrollView.maximumZoomScale = 4.0
-        self.scrollView.minimumZoomScale = 0.5
-        self.scrollView.delegate = self
-        self.scrollView.contentOffset = CGPoint(x: -(self.scrollView.bounds.size.width - self.imageView!.bounds.size.width)/2.0, y: -(self.scrollView.bounds.size.height - self.imageView!.bounds.size.height)/2.0)
-        NSLog("scrollview \(self.scrollView.contentSize)")
-        print("images array total images: \(imagesArray.count)")
-        
-        
-        self.spinner.stopAnimating()
-        
-    }
     
     
     

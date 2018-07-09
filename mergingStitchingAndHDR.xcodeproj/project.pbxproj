@@ -24,6 +24,7 @@
 		F1F76DC720F01B0E00523F3B /* CapturePhotoDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F76DBD20F01B0D00523F3B /* CapturePhotoDelegate.swift */; };
 		F1F76DDF20F01E5A00523F3B /* stitching.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F1F76DDE20F01E5A00523F3B /* stitching.cpp */; };
 		F1F76DE120F02BAE00523F3B /* SwViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F76DE020F02BAE00523F3B /* SwViewController.swift */; };
+		F1F76DE320F02DA300523F3B /* StitchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F76DE220F02DA300523F3B /* StitchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		F1F76DDD20F01E5A00523F3B /* stitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stitching.h; sourceTree = "<group>"; };
 		F1F76DDE20F01E5A00523F3B /* stitching.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = stitching.cpp; sourceTree = "<group>"; };
 		F1F76DE020F02BAE00523F3B /* SwViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwViewController.swift; sourceTree = "<group>"; };
+		F1F76DE220F02DA300523F3B /* StitchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StitchManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				F1F76DB620F01B0D00523F3B /* ViewController.swift */,
 				F1F76DA120F01A6400523F3B /* Main.storyboard */,
 				F1F76DE020F02BAE00523F3B /* SwViewController.swift */,
+				F1F76DE220F02DA300523F3B /* StitchManager.swift */,
 				F1F76DDE20F01E5A00523F3B /* stitching.cpp */,
 				F1F76DDD20F01E5A00523F3B /* stitching.h */,
 				F1F76DA420F01A6500523F3B /* Assets.xcassets */,
@@ -235,6 +238,7 @@
 				F1F76DE120F02BAE00523F3B /* SwViewController.swift in Sources */,
 				F1F76DC020F01B0E00523F3B /* PreviewView.swift in Sources */,
 				F1F76DC720F01B0E00523F3B /* CapturePhotoDelegate.swift in Sources */,
+				F1F76DE320F02DA300523F3B /* StitchManager.swift in Sources */,
 				F1F76D9E20F01A6400523F3B /* AppDelegate.swift in Sources */,
 				F1F76DBF20F01B0E00523F3B /* OpenCVWrapper.mm in Sources */,
 				F1F76DC420F01B0E00523F3B /* ExposureManager.swift in Sources */,

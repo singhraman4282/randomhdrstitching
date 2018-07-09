@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     let capturePhotoOutput = AVCapturePhotoOutput()
     let capturePhotoDelegate = CapturePhotoDelegate()
     
+    var imageToExpose:UIImage!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,30 +50,6 @@ class ViewController: UIViewController {
     
     @IBAction func onTapTakePhoto(_ sender: UIButton) {
         
-        
-        
-        
-        /*
-         //FOR TAKING BRACKETED PHOTOS
-         print("captureSession.sessionPreset.hashValue: \(captureSession.sessionPreset.rawValue)")
-         
-         print("capturePhotoOutput.maxBracketedCapturePhotoCount is \(capturePhotoOutput.maxBracketedCapturePhotoCount)")
-         
-         
-         let exposureValues: [Float] = [-1.5,-0.5,+0.5,+1.5,]
-         let makeAutoExposureSettings = AVCaptureAutoExposureBracketedStillImageSettings.autoExposureSettings(exposureTargetBias:)
-         let exposureSettings = exposureValues.map(makeAutoExposureSettings)
-         
-         
-         
-         let photoSettings = AVCapturePhotoBracketSettings(rawPixelFormatType: 0,
-         processedFormat: [AVVideoCodecKey : AVVideoCodecType.hevc],
-         bracketedSettings: exposureSettings)
-         
-         photoSettings.isLensStabilizationEnabled =
-         self.capturePhotoOutput.isLensStabilizationDuringBracketedCaptureSupported*/
-        
-        
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isAutoStillImageStabilizationEnabled = true
         photoSettings.isHighResolutionPhotoEnabled = true
@@ -80,6 +58,35 @@ class ViewController: UIViewController {
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: capturePhotoDelegate)
         
     }
+    
+    @IBAction func onTapCreatePanorama(_ sender: UIButton) {
+        
+        
+        
+        let stitchedImage:UIImage = OpenCVWrapper.process(with: capturePhotoDelegate.imagesArray)
+        let savePhotoManager = SavePhotoManager()
+        savePhotoManager.saveImage(image: stitchedImage)
+        
+        
+        capturePhotoDelegate.imagesArray = [UIImage]()
+        imageToExpose = stitchedImage
+        
+    }
+    
+    
+    @IBAction func makeHDR(_ sender: UIButton) {
+        if imageToExpose == imageToExpose {
+            let exposureManager = ExposureManager()
+            exposureManager.applyManualExposure(toImage: imageToExpose)
+        } else {
+            print("still stitching")
+        }
+        
+    }
+    
+    
+    
+    
     
     func checkCameraUsagePermission() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
