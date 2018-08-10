@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC0A1F6E45ADC34152A2DED4 /* Pods_mergingStitchingAndHDR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02693FF7A2EB44B9CBE95228 /* Pods_mergingStitchingAndHDR.framework */; };
+		F110B0B0211D20CC001695CC /* ModernisedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110B0AF211D20CC001695CC /* ModernisedViewController.swift */; };
 		F1F76D9E20F01A6400523F3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F76D9D20F01A6400523F3B /* AppDelegate.swift */; };
 		F1F76DA320F01A6400523F3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F76DA120F01A6400523F3B /* Main.storyboard */; };
 		F1F76DA520F01A6500523F3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F76DA420F01A6500523F3B /* Assets.xcassets */; };
@@ -31,6 +32,7 @@
 		02693FF7A2EB44B9CBE95228 /* Pods_mergingStitchingAndHDR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mergingStitchingAndHDR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71D2DA4600D91790B0984A21 /* Pods-mergingStitchingAndHDR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mergingStitchingAndHDR.release.xcconfig"; path = "Pods/Target Support Files/Pods-mergingStitchingAndHDR/Pods-mergingStitchingAndHDR.release.xcconfig"; sourceTree = "<group>"; };
 		E2058D79ED13488185A8D30D /* Pods-mergingStitchingAndHDR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mergingStitchingAndHDR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mergingStitchingAndHDR/Pods-mergingStitchingAndHDR.debug.xcconfig"; sourceTree = "<group>"; };
+		F110B0AF211D20CC001695CC /* ModernisedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernisedViewController.swift; sourceTree = "<group>"; };
 		F1F76D9A20F01A6400523F3B /* mergingStitchingAndHDR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mergingStitchingAndHDR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F76D9D20F01A6400523F3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F76DA220F01A6400523F3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				F1F76DB020F01B0C00523F3B /* UIImage+Rotate.m */,
 				F1F76DB620F01B0D00523F3B /* ViewController.swift */,
 				F1F76DA120F01A6400523F3B /* Main.storyboard */,
+				F110B0AF211D20CC001695CC /* ModernisedViewController.swift */,
 				F1F76DE020F02BAE00523F3B /* SwViewController.swift */,
 				F1F76DE220F02DA300523F3B /* StitchManager.swift */,
 				F1F76DDE20F01E5A00523F3B /* stitching.cpp */,
@@ -240,6 +243,7 @@
 				F1F76DC720F01B0E00523F3B /* CapturePhotoDelegate.swift in Sources */,
 				F1F76DE320F02DA300523F3B /* StitchManager.swift in Sources */,
 				F1F76D9E20F01A6400523F3B /* AppDelegate.swift in Sources */,
+				F110B0B0211D20CC001695CC /* ModernisedViewController.swift in Sources */,
 				F1F76DBF20F01B0E00523F3B /* OpenCVWrapper.mm in Sources */,
 				F1F76DC420F01B0E00523F3B /* ExposureManager.swift in Sources */,
 				F1F76DC120F01B0E00523F3B /* UIImage+OpenCV.mm in Sources */,

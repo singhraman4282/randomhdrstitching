@@ -67,7 +67,7 @@
 using namespace std;
 using namespace cv;
 
-bool try_use_gpu = false;
+bool try_use_gpu = true;
 vector<Mat> imgs;
 string result_name = "result.jpg";
 
@@ -79,6 +79,7 @@ cv::Mat stitch (vector<Mat>& images)
     imgs = images;
     Mat pano;
     Stitcher stitcher = Stitcher::createDefault(try_use_gpu);
+    stitcher.setWarper(makePtr<SphericalWarper>());
     Stitcher::Status status = stitcher.stitch(imgs, pano);
     
     if (status != Stitcher::OK)
@@ -86,6 +87,10 @@ cv::Mat stitch (vector<Mat>& images)
         cout << "Can't stitch images, error code = " << int(status) << endl;
             //return 0;
         }
+    
+    
+    
+    
     return pano;
 }
 

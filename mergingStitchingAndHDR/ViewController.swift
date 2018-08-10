@@ -13,6 +13,7 @@ import Photos
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var previewView: PreviewView!
     
     let captureSession = AVCaptureSession()
@@ -43,13 +44,13 @@ class ViewController: UIViewController {
         
         capturePhotoOutput.isHighResolutionCaptureEnabled = true
         captureSession.addOutput(capturePhotoOutput)
-        captureSession.sessionPreset = AVCaptureSession.Preset.iFrame960x540
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
         print("capturePhotoOutput.maxBracketedCapturePhotoCount is \(capturePhotoOutput.maxBracketedCapturePhotoCount)")
         captureSession.startRunning()
     }
     
     @IBAction func onTapTakePhoto(_ sender: UIButton) {
-        
+        feedbackLabel.text = "stitching"
         let photoSettings = AVCapturePhotoSettings()
         photoSettings.isAutoStillImageStabilizationEnabled = true
         photoSettings.isHighResolutionPhotoEnabled = true
@@ -57,18 +58,39 @@ class ViewController: UIViewController {
         
         capturePhotoOutput.capturePhoto(with: photoSettings, delegate: capturePhotoDelegate)
         
+        if capturePhotoDelegate.imagesArray.count>2 {
+            print("total Images: \(capturePhotoDelegate.imagesArray.count)")
+            let stitchedImage:UIImage = OpenCVWrapper.process(with: capturePhotoDelegate.imagesArray)
+            if stitchedImage == stitchedImage {
+                feedbackLabel.text = "good"
+                print("good")
+            } else {
+                capturePhotoDelegate.imagesArray.remove(at: capturePhotoDelegate.imagesArray.count - 1)
+                feedbackLabel.text = "not good"
+                print("not good")
+            }
+        }
+        
     }
     
     @IBAction func onTapCreatePanorama(_ sender: UIButton) {
         
-        
-        
         let stitchedImage:UIImage = OpenCVWrapper.process(with: capturePhotoDelegate.imagesArray)
+        
+        if stitchedImage == stitchedImage {
+            feedbackLabel.text = "good"
+            print("good")
+        } else {
+            feedbackLabel.text = "not good"
+            print("not good")
+        }
+        
+        
         let savePhotoManager = SavePhotoManager()
         savePhotoManager.saveImage(image: stitchedImage)
+
         
-        
-        capturePhotoDelegate.imagesArray = [UIImage]()
+//        capturePhotoDelegate.imagesArray = [UIImage]()
         imageToExpose = stitchedImage
         
     }

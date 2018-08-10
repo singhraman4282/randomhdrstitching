@@ -16,7 +16,11 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     
     //    var imageArray:[UIImage] = [#imageLiteral(resourceName: "p1"),#imageLiteral(resourceName: "p2"),#imageLiteral(resourceName: "p3"),#imageLiteral(resourceName: "p4"),#imageLiteral(resourceName: "p5"),#imageLiteral(resourceName: "p6"),#imageLiteral(resourceName: "p7"),#imageLiteral(resourceName: "p8")]
     
-    var imageArray:[UIImage] = [#imageLiteral(resourceName: "p4"),#imageLiteral(resourceName: "p5"),#imageLiteral(resourceName: "p6"),#imageLiteral(resourceName: "p7"),#imageLiteral(resourceName: "p8")]
+//    var imageArray:[UIImage] = [#imageLiteral(resourceName: "p4"),#imageLiteral(resourceName: "p5"),#imageLiteral(resourceName: "p6"),#imageLiteral(resourceName: "p7"),#imageLiteral(resourceName: "p8")]
+    
+    var imageArray = [UIImage]()
+    
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -30,6 +34,13 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for imageNumber in 4447...4610 {
+            let image = UIImage(named: "IMG_\(imageNumber).jpg")
+            imageArray.append(image!)
+        }
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -46,44 +57,45 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     
     
     @IBAction func stitchButtonPressed(_ sender: UIButton) {
+        stitch()
         
-        if imageArray.count > 1 {
-            let stitchedImage = stichFromTwoImages(image1: imageArray[0], image2: imageArray[1])
-            let imageView:UIImageView = UIImageView.init(image: stitchedImage)
-            if self.imageView == self.imageView {
-                self.imageView?.removeFromSuperview()
-            }
-            
-            self.imageView = imageView
-            self.scrollView.addSubview(self.imageView!)
-            self.scrollView.backgroundColor = UIColor.black
-            self.scrollView.contentSize = self.imageView!.bounds.size
-            self.scrollView.maximumZoomScale = 4.0
-            self.scrollView.minimumZoomScale = 0.5
-            self.scrollView.delegate = self
-            self.scrollView.contentOffset = CGPoint(x: -(self.scrollView.bounds.size.width - self.imageView!.bounds.size.width)/2.0, y: -(self.scrollView.bounds.size.height - self.imageView!.bounds.size.height)/2.0)
-            NSLog("scrollview \(self.scrollView.contentSize)")
-            
-            imageArray.remove(at: 0)
-            imageArray.remove(at: 0)
-            imageArray.insert(stitchedImage, at: 0)
-        }
-        
-        print("images array total images: \(imageArray.count)")
+//        if imageArray.count > 1 {
+//            let stitchedImage = stichFromTwoImages(image1: imageArray[0], image2: imageArray[1])
+//            let imageView:UIImageView = UIImageView.init(image: stitchedImage)
+//            if self.imageView == self.imageView {
+//                self.imageView?.removeFromSuperview()
+//            }
+//
+//            self.imageView = imageView
+//            self.scrollView.addSubview(self.imageView!)
+//            self.scrollView.backgroundColor = UIColor.black
+//            self.scrollView.contentSize = self.imageView!.bounds.size
+//            self.scrollView.maximumZoomScale = 4.0
+//            self.scrollView.minimumZoomScale = 0.5
+//            self.scrollView.delegate = self
+//            self.scrollView.contentOffset = CGPoint(x: -(self.scrollView.bounds.size.width - self.imageView!.bounds.size.width)/2.0, y: -(self.scrollView.bounds.size.height - self.imageView!.bounds.size.height)/2.0)
+//            NSLog("scrollview \(self.scrollView.contentSize)")
+//
+//            imageArray.remove(at: 0)
+//            imageArray.remove(at: 0)
+//            imageArray.insert(stitchedImage, at: 0)
+//        }
+//
+//        print("images array total images: \(imageArray.count)")
         
     }
     
     func stitch() {
         self.spinner.startAnimating()
         DispatchQueue.global().async {
-            
-            let imageArray:[UIImage?] = [#imageLiteral(resourceName: "p1"),#imageLiteral(resourceName: "p2"),#imageLiteral(resourceName: "p3"),#imageLiteral(resourceName: "p4"),#imageLiteral(resourceName: "p5"),#imageLiteral(resourceName: "p6"),#imageLiteral(resourceName: "p7"),#imageLiteral(resourceName: "p8")]
-            
-            let stitchedImage:UIImage = OpenCVWrapper.process(with: imageArray as! [UIImage]) as UIImage
+            let stitchedImage:UIImage = OpenCVWrapper.process(with: self.imageArray)
             
             DispatchQueue.main.async {
                 NSLog("stichedImage %@", stitchedImage)
                 let imageView:UIImageView = UIImageView.init(image: stitchedImage)
+                if self.imageView == self.imageView {
+                    self.imageView?.removeFromSuperview()
+                }
                 self.imageView = imageView
                 self.scrollView.addSubview(self.imageView!)
                 self.scrollView.backgroundColor = UIColor.black
@@ -113,3 +125,6 @@ class SwViewController: UIViewController, UIScrollViewDelegate {
     }
     
 }
+
+
+

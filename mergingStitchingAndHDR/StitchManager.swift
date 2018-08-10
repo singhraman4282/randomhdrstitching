@@ -9,11 +9,17 @@
 import UIKit
 
 class StitchManager: NSObject {
+    
+   
 
     func stichFromTwoImages(image1:UIImage, image2:UIImage) -> UIImage {
-        let imageArray = [image1, image2]
-        let stitchedImage:UIImage = OpenCVWrapper.process(with: imageArray)
-        
+        let imagesArray = [image1, image2]
+        let stitchedImage:UIImage = OpenCVWrapper.process(with: imagesArray)
+        return stitchedImage
+    }
+    
+    func stitchImageFromImagesArray(imagesArray:[UIImage]) ->UIImage {
+        let stitchedImage:UIImage = OpenCVWrapper.process(with: imagesArray)
         return stitchedImage
     }
     
